@@ -16,7 +16,7 @@ class Project:
 
     @property
     def score(self):
-        return self._score
+        return int(self._score)
 
     @property
     def deadline(self):

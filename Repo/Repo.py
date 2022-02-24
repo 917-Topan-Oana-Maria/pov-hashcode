@@ -60,3 +60,14 @@ class Repo:
                         proj = Project(nume_project, zile, score, deadline, roles)
                         self.repo_project.append(proj)
                         line += nr_roles
+
+    @property
+    def project_list(self):
+        return self.repo_project
+
+    @property
+    def contributor_list(self):
+        return self.repo_contributors
+
+
+abc = Repo()
