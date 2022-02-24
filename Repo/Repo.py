@@ -15,11 +15,12 @@ class Repo:
             lines = f.readlines()
             n = len(lines)
 
-            nr_cont = lines[0]
+            nr_cont = lines[0].strip()
             lin = nr_cont.split(' ', maxsplit=1)
             nr_cont1 = int(lin[0])
             nr_project = int(lin[1])
-            for line in range(1, n):
+            line = 1
+            while line<n:
                 if nr_cont1 > 0:
                     linie = lines[line].strip()
 
@@ -28,7 +29,7 @@ class Repo:
                         name = parts[0]
                         nr_skills = int(parts[1])
                         list_skills = []
-                        for skills in range(line + 1, line + nr_skills):
+                        for skills in range(line + 1, line + nr_skills+1):
                             l = lines[skills].strip()
                             part = l.split(' ')
                             nume_skill = part[0]
@@ -37,7 +38,7 @@ class Repo:
                             list_skills.append(sk)
                         contr = Cont(name, list_skills)
                         self.repo_contributors.append(contr)
-                        line += nr_skills
+                        line += nr_skills+1
                         nr_cont1 -= 1
                 else:
                     linie = lines[line].strip()
@@ -50,7 +51,7 @@ class Repo:
                         deadline = int(parts[3])
                         nr_roles = int(parts[4])
                         roles = []
-                        for skills in range(line + 1, line + nr_roles):
+                        for skills in range(line + 1, line + nr_roles+1):
                             r = lines[skills].strip()
                             part = r.split(' ')
                             nume_skill = part[0]
@@ -59,7 +60,8 @@ class Repo:
                             roles.append(sk)
                         proj = Project(nume_project, zile, score, deadline, roles)
                         self.repo_project.append(proj)
-                        line += nr_roles
+                        line += nr_roles+1
+
 
     @property
     def project_list(self):
@@ -70,4 +72,3 @@ class Repo:
         return self.repo_contributors
 
 
-abc = Repo()
