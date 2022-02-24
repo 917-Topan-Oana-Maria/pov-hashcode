@@ -17,3 +17,9 @@ class Cont:
     @busy.setter
     def busy(self, value):
         self._busy = value
+
+    def check_for_skill(self, sk):
+        for skill in self.skills:
+            if skill.name == sk.name and skill.level <=sk.level:
+                return True
+        return False
