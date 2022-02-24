@@ -5,6 +5,7 @@ class Project:
         self._score = score
         self._deadline = deadline
         self._roles = roles
+        self._status = False
 
     @property
     def name(self):
@@ -29,3 +30,11 @@ class Project:
     @score.setter
     def score(self, value):
         self._score = value
+
+    @property
+    def status(self):
+        return self._status
+
+    @status.setter
+    def status(self, value):
+        self._status = value
