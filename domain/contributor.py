@@ -1,12 +1,12 @@
 class Cont:
-    def __init__(self, nume, skill):
+    def __init__(self, nume, skills):
         self._nume = nume
-        self._skill = skill
+        self._skills = skills
 
     @property
     def nume(self):
         return self._nume
 
     @property
-    def skill(self):
-        return self._skill
+    def skills(self):
+        return self._skills
