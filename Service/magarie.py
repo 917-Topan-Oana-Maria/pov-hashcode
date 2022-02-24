@@ -17,4 +17,19 @@ class ServiceJanos:
     def randomagarie(self):
         a= len(self._repo.project_list)
         b= len(self._repo.contributor_list)
-        for i in range(0,a):
+        print (a)
+        for i in self._repo.project_list:
+            print(i.name)
+            for j in i.roles:
+                d=random.randint(0,b-1)
+                print(self._repo.contributor_list[d].nume+" ",end="")
+            print("\n",end="")
+
+
+
+from Repo.Repo import Repo
+
+repo= Repo("input.txt")
+repo.read_from_file()
+abc=ServiceJanos(repo,repo)
+abc.randomagarie()
